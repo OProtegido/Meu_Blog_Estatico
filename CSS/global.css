@@ -1,44 +1,152 @@
 /* Folhas de estilo do tema / template do site. */
 
- 
+
 
 
 /*Importa FontAwesome */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 :root {
-    --font-padrao: Consolas;
+    --font-padrao: sans-serif;
     --tamanho-da-fonte: 16px;
-    --cor-do-fundo: #83d3a7;
- }
+    --cor-do-fundo: #ddd;
+    --cor-link-padrao: steelblue;
+    --cor-link-hover: orangered;
+}
 
 
 /*Reset Basic */
 
-*{
-   box-sizing: border-box ;
-   outline: none;
+* {
+    box-sizing: border-box;
+    outline: none;
 }
 
-html, body, #wrap {
+html,
+body,
+#wrap {
     position: relative;
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: var(--font-padrao);
+    font-family: var(--fonte-padrao);
+    /* Tamanho padrão da fonte da página ↨ 1rem */
     font-size: var(--tamanho-da-fonte);
 }
 
+/* Reset dos links */
+
+a {
+    color: var(--cor-link-padrao);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--cor-link-hover);
+}
+
+/* Reset dos campos de formulário */
+
+form input,
+form button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: .35rem .5rem;
+}
+
+/* Fundo da página */
 
 body {
-    background-color: var(--cor-do-fundo);
+    background: var(--cor-do-fundo);
 }
 
 #wrap {
     display: flex;
     flex-direction: column;
 }
+
 main {
     flex-grow: 1;
+}
+
+/* Cabeçalho → <header> */
+
+header {
+    background-color: rgb(255, 255, 255);
+}
+
+header img {
+    display: block;
+    /* 4 * 16 = 64 pixels */
+    height: 4rem;
+    width: auto;
+    margin: .5rem 1rem .5rem .5rem;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #000;
+}
+
+header form {
+    background-color: #000;
+    padding: 1rem;
+    display: flex;
+}
+
+header form input {
+    flex-grow: 1;
+    border: none;
+    border-radius: .3rem 0 0 .3rem;
+}
+
+header form button {
+    border: none;
+    border-radius: 0 .3rem .3rem 0;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/* Menu principa */
+nav {
+    background-color: rgb(248, 164, 8);
+    display: flex;
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+}
+
+nav img {
+    height: 2rem;
+    width: 2rem;
+}
+
+nav i {
+    font-size: 2rem;
+}
+
+nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    color: #000;
+}
+
+nav a:hover {
+    color: orange;
+    background-color: #000;
+}
+nav a:first-child {
+    margin-right: .5rem;
+}
+nav span {
+    margin-top: .5rem;
 }
