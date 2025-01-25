@@ -1,60 +1,47 @@
-/***********************************************
- * Nome do Arquivo: g.js
- * Descrição: Biblioteca de funções JavaScripts de uso geral.
- * Autor: André Luferat
- * Data de Criação: 13/01/2025
- * Última Modificação: 13/01/2025
- * Versão: 1.0
- ***********************************************/
+/**
+ * JavaScript do template do site.
+ * É executado em todas as páginas.
+ * Todo o código global fica aqui, por exemplo, gestão do usuário e
+ * tratamento do template.
+ **/
 
 /**
- * Formata uma data no formato especificado.
- * @param {Date} data - A data a ser formatada.
- * @param {string} formato - O formato desejado ('ISO' ou 'BR').
- * @returns {string} A data formatada conforme o formato especificado.
+ * Inicializa o Firebase e as ferramentas Firestore e Auth
  */
-function formatarData(data, formato) {
-    const ano = data.getFullYear();
-    const mes = String(data.getMonth() + 1).padStart(2, '0');
-    const dia = String(data.getDate()).padStart(2, '0');
-    const horas = String(data.getHours()).padStart(2, '0');
-    const minutos = String(data.getMinutes()).padStart(2, '0');
-    const segundos = String(data.getSeconds()).padStart(2, '0');
-
-    if (formato === 'ISO') {
-        return `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
-    } else if (formato === 'BR') {
-        return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
-    } else {
-        throw new Error('Formato inválido. Use "ISO" ou "BR".');
-    }
-}
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.firestore();
+const auth = firebaseApp.auth();
 
 /**
- * Obtém a data e hora atual no formato ISO.
- * @returns {string} A data e hora atual no formato ISO.
- */
-function agoraISO() {
-    const agora = new Date();
-    return formatarData(agora, 'ISO');
-}
+ * Quando o documento está pronto, roda o JavaScript
+ **/
+window.onload = () => { // Isso é uma "arrow function"
 
-/**
- * Converte uma data do formato ISO para o formato BR.
- * @param {string} dataISO - A data no formato ISO (YYYY-MM-DD HH:MM:SS).
- * @returns {string} A data no formato BR (DD/MM/YYYY HH:MM).
- */
-function dataISOparaBR(dataISO) {
-    const data = new Date(dataISO);
-    return formatarData(data, 'BR');
-}
+    /**
+     * Altera o <title> padrão da página atual.
+     **/
+    document.title = site.nome;
 
-/**
- * Converte uma data do formato JavaScript para o formato ISO.
- * @param {Date} dataJS - A data no formato JavaScript.
- * @returns {string} A data no formato ISO (YYYY-MM-DD HH:MM:SS).
- */
-function dataJStoISO(dataJS) {
-    const data = new Date(dataJS);
-    return formatarData(data, 'ISO');
+    // Carrega o template HTML em div#wrap
+    _('#wrap').innerHTML = template();
+
+    /**
+     * Obtém o ano da data atual e atualiza a licensa do site.
+     * O elemento span#footerAno está definido em funcoes.js → template()
+     **/
+    let agora = new Date();
+    let ano = agora.getFullYear();
+    if (ano > site.ano)
+        /**
+         * Se o ano atual é maior que o da fundação do site, 
+         * mostra o ano de fundação e o atual.
+         **/
+        _('#footerAno').innerHTML = `${site.ano} ${ano}`;
+    else
+        /**
+         * Se o ano de fundação é o atual,
+         * mostra o ano de fundação.
+         **/
+        _('#footerAno').innerHTML = site.ano;
+
 }
