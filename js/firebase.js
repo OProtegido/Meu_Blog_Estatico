@@ -9,10 +9,10 @@
  **/
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB_t5qOcHIpgf-z7JwyBkn1mAqxIKtgKiQ",
-    authDomain: "meu-blog-estatico-27dd0.firebaseapp.com",
-    projectId: "meu-blog-estatico-27dd0",
-    storageBucket: "meu-blog-estatico-27dd0.firebasestorage.app",
-    messagingSenderId: "133411976288",
-    appId: "1:133411976288:web:141ec040a4197bad167f05"
-};
+    apiKey: "AIzaSyD-N7ErdUif5yNryc8JH5qiJB2V_v5EbIc",
+    authDomain: "meublog-420de.firebaseapp.com",
+    projectId: "meublog-420de",
+    storageBucket: "meublog-420de.firebasestorage.app",
+    messagingSenderId: "100731235770",
+    appId: "1:100731235770:web:839794933620cc7c260183"
+  };
