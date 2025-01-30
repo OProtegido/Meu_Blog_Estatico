@@ -20,6 +20,15 @@ window.onload = () => { // Isso é uma "arrow function"
     // Carrega o template HTML em div#wrap
     _('#wrap').innerHTML = template();
 
+    // Observa as mudanças de status do usuário
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            console.log(user)
+        } else {
+            console.log('não logado')
+        }
+    });
+
     /**
      * Obtém o ano da data atual e atualiza a licensa do site.
      * O elemento span#footerAno está definido em funcoes.js → template()
@@ -38,5 +47,24 @@ window.onload = () => { // Isso é uma "arrow function"
          * mostra o ano de fundação.
          **/
         _('#footerAno').innerHTML = site.ano;
+
+        _('#usuarioAcao').addEventListener('click', (evento) => {
+            // Bloqueia a execução normal do evento
+            evento.preventDefault();
+    
+            let acao = _('#usuarioAcao').getAttribute('data-acao');
+            console.log(acao);
+            switch (acao) {
+                case 'login':
+                    fbSigIn();
+                    break;
+                case 'logout':
+                    fbSignOut();
+                    break;
+                case 'perfil':
+                    location.href = 'perfil.html';
+            }
+            
+        });
 
 }

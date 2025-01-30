@@ -11,7 +11,7 @@ const site = {
   /**
    * Nome do site usado na tag <title>...</title> e nas interações dinâmicas
    **/
-  nome: "Meu Blog Estático",
+  nome: "Meu Blog Cansado",
 
   /**
    * Logotipo do site, usado na tag <header>...</title>
@@ -35,7 +35,7 @@ const site = {
    **/
   licensa: `
     <i class="fa-regular fa-copyright fa-rotate-180 fa-fw"></i>
-    <span>Copyleft <span id="footerAno"></span> Joca da Silva</span>
+    <span>Copyleft <span id="footerAno"></span> Telmir Santos</span>
     `,
 
 }
