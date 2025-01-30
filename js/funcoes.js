@@ -79,6 +79,13 @@ function _(seletor) {
 }
 
 /**
+ * Login no firebase Authentication
+ */
+function fbSigIn(){
+    firebase.auth().signInWithPopup(provider);
+}
+
+/**
  * Retorna o template HTML padrão do site
  **/
 function template() {

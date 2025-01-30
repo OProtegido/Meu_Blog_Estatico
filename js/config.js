@@ -35,7 +35,7 @@ const site = {
    **/
   licensa: `
     <i class="fa-regular fa-copyright fa-rotate-180 fa-fw"></i>
-    <span>Copyleft <span id="footerAno"></span> Telmir Santos</span>
+    <span>Copyleft <span id="footerAno"></span> Joca da Silva</span>
     `,
 
 }
