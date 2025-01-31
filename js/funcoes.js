@@ -79,10 +79,17 @@ function _(seletor) {
 }
 
 /**
- * Login no firebase Authentication
+ * Login no Firebase Authentication
  */
-function fbSigIn(){
+function fbSigIn() {
     firebase.auth().signInWithPopup(provider);
+}
+
+/**
+ * Logout do Firebase Authentication
+ */
+function fbSignOut() {
+    firebase.auth().signOut();
 }
 
 /**
